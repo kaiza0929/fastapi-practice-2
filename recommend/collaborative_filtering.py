@@ -74,7 +74,6 @@ class CollaborativeFiltering:
 
         #[(ユーザーid, 対象ユーザーとの類似度)]
         #類似する上位x人のユーザーを取得 先頭は自身になる(cos類似度が1になる)ので飛ばす
-        #x人の類似性の高いユーザーを取得 = k近傍法?(https://blog.brainpad.co.jp/entry/2017/05/23/153000)
         similarities = sorted(similarities.items(), key = lambda tup:tup[1], reverse = True)[1:6]
         print("コサイン類似度", similarities)
 
