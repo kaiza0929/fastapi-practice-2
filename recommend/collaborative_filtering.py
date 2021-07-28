@@ -90,7 +90,7 @@ class CollaborativeFiltering:
 
         movieRecommendScores = list(sorted(movieRecommendScores.items(), key = lambda tup:tup[1], reverse = True))[:10]
         
-        return [tup[0] for tup in movieRecommendScores]
+        return [{"id": tup[0], "name": "映画" + str(tup[0])} for tup in movieRecommendScores]
 
 
     #予測精度の評価 正解との2乗誤差? 正解に何を使えばいいのかが分からない(映画の評価点?)
