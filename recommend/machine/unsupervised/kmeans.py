@@ -39,20 +39,5 @@ class Kmeans:
                 #推薦提示対象のユーザーがひょうかしたアイテムがどのクラスターに属しているか
                 print((helpfulList[i], overallList[i]))
         
-        #print(clusters[0])
+        #print(clusters[0]
         return []
-        '''
-
-        #対象ユーザーが未評価のアイテム
-        noWatchedMovies = []
-
-
-        #2次元配列を引数にとるので空のリストの中に入れる
-        xTrain = np.array([xTrain])
-        yTrain = np.array([yTrain])
-
-        nc = KNeighborsClassifier(n_neighbors = 5)
-        nc.fit(xTrain, yTrain)
-            
-        return []
-        '''
