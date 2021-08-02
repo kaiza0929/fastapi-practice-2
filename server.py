@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from dataset.reviews import Reviews
 from recommend.cooperation.userbase import UserBase
-from recommend.machine.neighborhood import Neighborhood
+from recommend.machine.unsupervised.kmeans import Kmeans
 
 app = FastAPI()
 
@@ -20,7 +20,7 @@ app.add_middleware(
 reviews = Reviews()
 
 userbase = UserBase()
-neighborhood = Neighborhood()
+kmeans = Kmeans()
 
 @app.get("/api/reviewer")
 def getreviewers():
@@ -34,7 +34,7 @@ def gethistroy(targetReviewerId: str = "A2IBPI20UZIR0U"):
 def recommend(targetReviewerId: str = "A2IBPI20UZIR0U"):
     return {"recommended": userbase.recommend(reviews.allreview, targetReviewerId, reviews.asinList)}
 
-@app.get("/api/music/recommend/machine/neighborhood")
+@app.get("/api/music/recommend/machine/unsupervised/kmean")
 def recommend(targetReviewerId: str = "A2IBPI20UZIR0U"):
-    neighborhood.recommend(reviews.allreview, targetReviewerId)
+    kmeans.recommend(reviews.allreview, targetReviewerId)
     return []
